@@ -10,21 +10,21 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 
 
-        UserDao userDaoHibernate = new UserDaoHibernateImpl();
+        UserDao userDao = new UserDaoJDBCImpl();
 
-        userDaoHibernate.createUsersTable();
+        userDao.createUsersTable();
 
-        userDaoHibernate.saveUser("Ivan", "Semyonov", (byte) 25);
-        userDaoHibernate.saveUser("Oleg", "Petrov", (byte) 20);
-        userDaoHibernate.saveUser("Elena", "Sokolove", (byte) 19);
-        userDaoHibernate.saveUser("Darya", "Krylova", (byte) 27);
+        userDao.saveUser("Ivan", "Semyonov", (byte) 25);
+        userDao.saveUser("Oleg", "Petrov", (byte) 20);
+        userDao.saveUser("Elena", "Sokolove", (byte) 19);
+        userDao.saveUser("Darya", "Krylova", (byte) 27);
 
-        List<User> l = userDaoHibernate.getAllUsers();
+        List<User> l = userDao.getAllUsers();
 
         l.stream().forEach(t -> System.out.println(t.toString()));
 
-        //userDaoHibernate.cleanUsersTable();
-        //userDaoHibernate.dropUsersTable();
+        userDao.cleanUsersTable();
+        userDao.dropUsersTable();
 
     }
 }
