@@ -12,8 +12,7 @@ import java.util.List;
 public class UserDaoHibernateImpl implements UserDao {
     private Session session;
     public UserDaoHibernateImpl() {
-        Util util = new Util();
-        session = util.getHibSession();
+        session = Util.getHibSession();
     }
 
     @Override
