@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 
 
-        UserDao userDao = new UserDaoJDBCImpl();
+        UserDao userDao = new UserDaoHibernateImpl();
 
         userDao.createUsersTable();
 
